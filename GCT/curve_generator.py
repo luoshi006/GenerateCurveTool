@@ -3,6 +3,7 @@ import numpy as np
 from GCT.curve.dubins_path import generate_dubins_path
 from GCT.curve.reeds_shepp import generate_reeds_shepp
 from GCT.curve.clothoid_path import generate_clothoid_path
+from GCT.curve.bspline_path import generate_bspline_path
 import matplotlib.pyplot as plt
 from math import cos, sin, atan2
 
@@ -134,6 +135,9 @@ class curve_generator:
                 end_point = self.way_points[i + 1]
                 single_curve = generate_clothoid_path(start_point, end_point, step_size)
                 curve = curve + single_curve[1:]
+
+        elif curve_style == 'bspline':
+            curve = generate_bspline_path(self.way_points, step_size)
 
         else:
             print('wrong curve type')
