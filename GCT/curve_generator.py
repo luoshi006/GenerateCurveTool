@@ -2,6 +2,7 @@ from tkinter import Scale
 import numpy as np
 from GCT.curve.dubins_path import generate_dubins_path
 from GCT.curve.reeds_shepp import generate_reeds_shepp
+from GCT.curve.clothoid_path import generate_clothoid_path
 import matplotlib.pyplot as plt
 from math import cos, sin, atan2
 
@@ -41,10 +42,12 @@ class curve_generator:
         # curve: a list of points
 
         # curve_style: 
-            # - line: connect the points with line
-            # - reeds: connect the points with reeds shepp path
-            # - dubins: connect the points with dubins path
-        
+        # - line:       connect the points with line
+        # - reeds:      connect the points with reeds shepp path
+        # - dubins:     connect the points with dubins path
+        # - clothoid:   connect the points with clothoid
+        # - bspline:    connect the points with b-spline
+
         # include_gear: if True, the curve should include the gear flag (-1, 1) and the points should be the 4*1 matrix. Used for reeds shepp
 
         self.way_points = way_points
@@ -123,6 +126,13 @@ class curve_generator:
                 start_point = self.way_points[i]
                 end_point = self.way_points[i+1]
                 single_curve = self.generate_line(start_point, end_point, step_size)
+                curve = curve + single_curve[1:]
+
+        elif curve_style == 'clothoid':
+            for i in range(self.pnum - 1):
+                start_point = self.way_points[i]
+                end_point = self.way_points[i + 1]
+                single_curve = generate_clothoid_path(start_point, end_point, step_size)
                 curve = curve + single_curve[1:]
 
         else:

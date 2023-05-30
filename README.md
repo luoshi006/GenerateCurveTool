@@ -2,24 +2,19 @@
 
 A tool of generating the common curves from way points for the robot path planning, including dubins path, reeds shepp, etc.
 
-
-Dubins path  |   Reeds Shepp    |
-:-------------------------:|:-------------------------:|
-![](example/gif/dubins.gif)  | ![](example/gif/reeds_shepp.gif) 
+- Dubins path
+  - <img src="example/img/dubins.gif" width="300" height="300">
+- Reeds Shepp
+  - <img src="example/img/reeds_shepp.gif" width="300" height="300">
+- Clothoid
+  - <img src="example/img/clothoid.png" width="450" height="300">
 
 ## Prerequisite
 
 - Python: >= 3.8
     - numpy  
     - matplotlib 
-
-## Installation
-
-```
-git clone https://github.com/hanruihua/GenerateCurveTool  
-cd GenerateCurveTool  
-pip install -e . 
-```
+    - pyclothoids
 
 ## Usage 
 
@@ -30,10 +25,7 @@ The examples are in [GenerateCurveTool/example/](https://github.com/hanruihua/Ge
 - [x] Direct line
 - [x] Dubins path
 - [x] Reeds shepp
+- [x] Clothoid
 - [ ] bezier 
 
-## Author
-
-Han Ruihua  
-Contact: hanrh@connect.hku.hk
 
