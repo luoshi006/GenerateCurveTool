@@ -7,7 +7,6 @@ def generate_clothoid_path(start=np.zeros((3, 1)), end=np.ones((3, 1)), step_siz
     Arguments:
         start: the start point of the curve: 3* 1 matrix
         end: the end point of the curve: 3 * 1 matrix
-        min_radius: The minimum turning radius of the car
         step_size: the distance between each point
     """
 
